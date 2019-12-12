@@ -1683,6 +1683,15 @@ config ARCH_BOARD_STM32H747I_DISCO
 	select ARCH_HAVE_BUTTONS
 	select ARCH_HAVE_IRQBUTTONS
 	---help---
+		STMicro STM32H753XI-EVAL2 development board featuring the STM32H753XIH6.
+
+config ARCH_BOARD_STM32H753XI_EVAL2
+	bool "STMicro STM32H753XI-EVAL2 board"
+	depends on ARCH_CHIP_STM32H753XI
+	select ARCH_HAVE_LEDS
+	select ARCH_HAVE_BUTTONS
+	select ARCH_HAVE_IRQBUTTONS
+	---help---
 		STMicro STM32H747I-DISCO development board featuring the STM32H747XIH6
 		MCU. The STM32H747XIH6 is a dual core (480MHz Cortex-M7, 240MHz Cortex-M4)
 		with 2048Kb Flash memory and 1024Kb SRAM.
@@ -2256,6 +2265,7 @@ config ARCH_BOARD
 	default "stm32f746g-disco"         if ARCH_BOARD_STM32F746G_DISCO
 	default "stm32f769i-disco"         if ARCH_BOARD_STM32F769I_DISCO
 	default "stm32h747i-disco"         if ARCH_BOARD_STM32H747I_DISCO
+	default "stm32h753xi-eval2"        if ARCH_BOARD_STM32H753XI_EVAL2
 	default "stm32f746-ws"             if ARCH_BOARD_STM32F746_WS
 	default "b-g474e-dpow1"            if ARCH_BOARD_B_G474E_DPOW1
 	default "b-l072z-lrwan1"           if ARCH_BOARD_B_L072Z_LRWAN1
@@ -2608,6 +2618,9 @@ source "boards/arm/stm32h7/stm32h747i-disco/Kconfig"
 endif
 if ARCH_BOARD_NUCLEO_H743ZI
 source "boards/arm/stm32h7/nucleo-h743zi/Kconfig"
+endif
+if ARCH_BOARD_STM32H753XI_EVAL2
+source "boards/arm/stm32h7/stm32h753xi-eval2/Kconfig"
 endif
 if ARCH_BOARD_B_L475E_IOT01A
 source "boards/arm/stm32l4/b-l475e-iot01a/Kconfig"
